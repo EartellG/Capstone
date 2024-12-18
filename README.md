@@ -52,3 +52,5 @@ ___
 ![alt text](IMG_20241216_114200850.jpg)
 ![alt text](IMG_20241216_114222623.jpg)
 ![alt text](IMG_20241216_114123814.jpg)
+## Digit Wireframe
+[DigitFrame](<../../../Downloads/Digital flow>)
