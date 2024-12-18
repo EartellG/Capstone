@@ -53,4 +53,4 @@ ___
 ![alt text](IMG_20241216_114222623.jpg)
 ![alt text](IMG_20241216_114123814.jpg)
 ## Digit Wireframe
-[DigitFrame](<../../../Downloads/Digital flow>)
+![DgitFrame](https://app.diagrams.net/#G1JiYQa8R7CW1MFZfH0RvSgVwrXRDc0TMy#%7B%22pageId%22%3A%22C5RBs43oDa-KdzZeNtuy%22%7D)
