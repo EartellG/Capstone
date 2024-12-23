@@ -45,6 +45,9 @@ ___
 * Same as the other Two
 * no aisle number listed
 ___
+## Digit Wireframe
+![DgitFrame](https://app.diagrams.net/#G1JiYQa8R7CW1MFZfH0RvSgVwrXRDc0TMy#%7B%22pageId%22%3A%22C5RBs43oDa-KdzZeNtuy%22%7D)
+
 ## Wireframe
 ![alt text](IMG_20241216_114114052.jpg)
 ![alt text](IMG_20241216_114135368.jpg)
