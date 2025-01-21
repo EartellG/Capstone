@@ -15,6 +15,6 @@ const hardwareSchema = new mongoose.Schema({
   }
 });
 
-const Hardware = mongoose.model("Hardware");
+const Hardware = mongoose.model("Hardware", hardwareSchema);
 
 export default Hardware;
