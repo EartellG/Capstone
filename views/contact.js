@@ -1,6 +1,5 @@
 import html from "html-literal";
 export default state => html`
-  <h1>Contact Me</h1>
   <fieldset>
     <label for="first name"
       >Your First Name: <input id="first name" name="first name" type="text" />
@@ -16,5 +15,5 @@ export default state => html`
       >Your Email Address: <input id="email" name="email" type="text" />
     </label>
   </fieldset>
-  <footer></footer>
+  <input type="submit" value="Submit" />
 `;

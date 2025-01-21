@@ -1,22 +1,31 @@
-body {
+/* body {
   background-color: slateblue;
+  text-align: center;
+} */
+
+body {
+  background-image: url(12345.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
   text-align: center;
 }
 
+
 h1, p {
-  margin: 1em auto;
+  margin: 8em auto;
   text-align: center;
+  font-size:larger;
 }
 
 fieldset {
   border: none;
-padding: 2rem 0;
-
+  padding: 3rem 0px;
+  padding-bottom: 24px;
 }
 
 label {
   display: block;
-  margin: 0.5rem 0;
+  margin: 10px;
 }
 
 .inline {
@@ -27,11 +36,12 @@ label {
 
 input[type="submit"] {
   display: block;
-  width: 50%;
-  margin: 1em auto;
+  width: 30%;
+  margin: 5em auto;
   height: 2em;
-  background-color: black;
-min-width: 300px;
+  background-color:white;
+  min-width: 300px;
+
 }
 
 label[for=""] {
@@ -41,18 +51,79 @@ label[for=""] {
 input,
 textarea,
 select {
-  margin: 10px 0 0 0;
-  width: 35%;
+  margin: 20px 0 0 0;
+  width: 30%;
   min-height: 2em;
 }
 
-form {
-  width: 50vw;
-  max-width: 500px;
-  min-width: 300px;
-  margin: 0 auto;
-  padding-bottom: 2em;
+
+/* nav {
+display: flex;
+justify-content: space-evenly;
+margin-top: 45px;
+font-size: large;
+display: inline-block;
+    text-decoration: none;
+    border: 1px solid;
+    padding: 0.5rem 0.5rem;
+    border-radius: 25px;
+} */
+
+@media (max-width: 549px){
+  .hidden--mobile {
+    display: none !important;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  nav > i {
+    padding: 1rem;
+    font-size: 2em;
+  }
+
+  nav > ul {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 0;
+  }
+
+  nav > ul > li {
+    padding: 0.5rem;
+    list-style-type: none;
+  }
+
+  #bio img {
+    float: left;
+    width: 40%;
+    height: auto;
+    margin-right: 1rem;
+  }
 }
 
+@media (min-width: 550px) {
+  nav > ul {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0 0;
+  }
 
+  nav > ul > li {
+    display: inline-block;
+    text-decoration: none;
+    border: 1px solid;
+    padding: 0.5rem 0.5rem;
+    border-radius: 25px;
+  }
 
+  nav > .fa-bars {
+    display: none;
+  }
+
+#jumbotron {
+position: static;
+}
