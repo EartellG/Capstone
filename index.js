@@ -7,6 +7,8 @@ import { camelCase } from "lodash";
 import axios from "axios";
 import dotenv from "dotenv";
 
+
+
 const router = new Navigo("/");
 
 function render(state = store.home) {
@@ -27,6 +29,8 @@ router.hooks({
     // Add a switch case statement to handle multiple routes
     switch (view) {
       case "home":
+      case "walmart":
+        case "homeDepot":
         axios
           .get(`https://api.openweathermap.org/data/2.5/weather?appid=${process.env.OPEN_WEATHER_MAP_API_KEY}&units=imperial&q=st%20louis`)
           .then(response => {
