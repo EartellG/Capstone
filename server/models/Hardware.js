@@ -1,17 +1,14 @@
 import mongoose from "mongoose";
 
 const hardwareSchema = new mongoose.Schema({
-  handtool: {
+  tooltype: {
     type: String,
-    required: true,
-    brand: String,
-    validate: /^[A-Za-z0-9 ]*$/
+    required: true
+    // validate: /^[A-Za-z0-9 ]*$/
   },
-  powertool: {
+  brand: {
     type: String,
-    required: true,
-    brand: String,
-    validate: /^[A-Za-z0-9 ]*$/
+    required: true
   }
 });
 
