@@ -1,5 +1,6 @@
 export default {
-  header: "List",
-  view: "Current List"
+  header: "Current List",
+  view: "list",
+  hardwares: [],
+  groceries: []
 };
-

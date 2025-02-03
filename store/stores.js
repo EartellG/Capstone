@@ -1,4 +1,6 @@
 export default {
   header: "Stores",
-  view: "Stores"
+  view: "stores",
+  hardwares: [],
+  groceries: []
 };
