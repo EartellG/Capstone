@@ -23,14 +23,44 @@ function render(state = store.home) {
 }
 
 router.hooks({
-  before: (done, match) => {
+  before: async (done, match) => {
     // We need to know what view we are on to know what data to fetch
     const view = match?.data?.view ? camelCase(match.data.view) : "home";
     // Add a switch case statement to handle multiple routes
     switch (view) {
+      case "list":
+         await axios
+          .get(`${process.env.CAPSTONE_API_URL}/hardwares`)
+          .then(response => {
+            // We need to store the response to the state, in the next step but in the meantime let's see what it looks like so that we know what to store from the response.
+            console.log("response", response.data);
+
+            store.list.hardwares = response.data;
+
+
+          })
+          .catch((error) => {
+            console.log("It puked", error);
+
+          });
+        await axios
+          .get(`${process.env.CAPSTONE_API_URL}/groceries`)
+          .then(response => {
+            // We need to store the response to the state, in the next step but in the meantime let's see what it looks like so that we know what to store from the response.
+            console.log("response", response.data);
+
+            store.list.groceries = response.data;
+
+
+          })
+          .catch((error) => {
+            console.log("It puked", error);
+
+          });
+          done();
+        break;
+
       case "home":
-      case "walmart":
-        case "homeDepot":
         axios
           .get(`https://api.openweathermap.org/data/2.5/weather?appid=${process.env.OPEN_WEATHER_MAP_API_KEY}&units=imperial&q=st%20louis`)
           .then(response => {
