@@ -1,6 +1,6 @@
 import html from "html-literal";
 export default state => html`
-  <p>
+  <p1>
     The idea of Navi came to me around 2018 -2017. I was working as a private
     security officer after I left the Army. The security company I worked for
     was had mostly grocery store contracts. Armed and unarmed alike, I worked
@@ -12,5 +12,5 @@ export default state => html`
     organized based off the store you're in and whats on your list and orders
     them based on proximity and how close the items are to each other, This is
     Navigation for items or Navi for short.
-  </p>
+  </p1>
 `;
