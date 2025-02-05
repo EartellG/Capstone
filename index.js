@@ -28,6 +28,42 @@ router.hooks({
     const view = match?.data?.view ? camelCase(match.data.view) : "home";
     // Add a switch case statement to handle multiple routes
     switch (view) {
+      case "stores":
+         await axios
+          .get(`${process.env.CAPSTONE_API_URL}/hardwares`)
+          .then(response => {
+            // We need to store the response to the state, in the next step but in the meantime let's see what it looks like so that we know what to store from the response.
+            console.log("response", response.data);
+
+            store.stores.hardwares = response.data;
+
+
+          })
+          .catch((error) => {
+            console.log("It puked", error);
+
+          });
+        await axios
+          .get(`${process.env.CAPSTONE_API_URL}/groceries`)
+          .then(response => {
+            // We need to store the response to the state, in the next step but in the meantime let's see what it looks like so that we know what to store from the response.
+            console.log("response", response.data);
+
+            store.stores.food = response.data.filter((grocery) => grocery.food );
+            store.stores.drinks = response.data.filter((grocery) => grocery.drink );
+            console.log("response drinks", store.stores.drinks);
+            console.log("response food", store.stores.food);
+
+
+
+          })
+          .catch((error) => {
+            console.log("It puked", error);
+
+          });
+          done();
+        break;
+
       case "list":
          await axios
           .get(`${process.env.CAPSTONE_API_URL}/hardwares`)
@@ -90,14 +126,58 @@ router.hooks({
         render(store[view]);
       },
       after: (match) => {
+        const view = match?.data?.view ? camelCase(match.data.view) : "home";
         router.updatePageLinks();
 
         // add menu toggle to bars icon in nav bar
         document.querySelector(".fa-bars").addEventListener("click", () => {
             document.querySelector("nav > ul").classList.toggle("hidden--mobile");
         });
+        if (view === "stores") {
+          document.querySelector("form").addEventListener("submit", (event) => {
+            event.preventDefault();
+            const formData = event.target.elements;
+            console.log(formData);
+            console.log(formData.tooltype.selectedOptions);
+            const tools = [];
+            for (let input of formData.tooltype.selectedOptions) {
+              tools.push(input.value);
+            }
+            console.log(tools);
+
+
+
+            console.log(formData.food.selectedOptions);
+            const Foods = [];
+            for (let input of formData.food.selectedOptions) {
+              Foods.push(input.value);
+            }
+            console.log(Foods);
+
+
+            console.log(formData.drink.selectedOptions);
+            const Drinks = [];
+            for (let input of formData.drink.selectedOptions) {
+              Drinks.push(input.value);
+            }
+            console.log(Drinks);
+
+            const stringTools = tools.join(", ");
+            const stringFoods = Foods.join(", ");
+            const stringDrinks = Drinks.join(", ");
+            const requestData = {
+              tooltype: stringTools,
+              food: stringFoods,
+              drink: stringDrinks
+            };
+            console.log(requestData);
+            store.list.currentList = requestData;
+            router.navigate("/list");
+
+          });
       }
-    });
+    }
+  });
 
     router
   .on({

@@ -7,35 +7,39 @@ export default state => {
       <form id="Hd" method="POST" action="">
         <h2>Hardware</h2>
         <!-- add class to h2 for styling -->
-        <div>
-          <label for="tooltype">Tool Type</label>
-          <input type="text" name="tooltype" id="tooltype" required />
-        </div>
-        <div>
-          <label for="brand">Brand</label>
-          <input type="text" name="brand" id="brand" required />
-        </div>
-      </form>
-    </section>
 
-    <section>
-      <form id="Wm" method="POST" action="">
+        <div>
+          <label class="listType" for="tooltype">Tool Type</label>
+          <select name="tooltype" id="tooltype" multiple>
+            <option value="Not Selected">--Please choose an option--</option>
+            ${state.hardwares.map(hardware => {
+              return `<option value="${hardware.tooltype}">${hardware.tooltype}</option>`;
+            })}
+          </select>
+        </div>
+
         <h2>Groceries</h2>
         <!-- add class to h2 for styling -->
         <div>
-          <label for="food">Food</label>
-          <input type="text" name="food" id="food" />
+          <label class="listType" for="food">Food</label>
+          <select name="food" id="food" multiple>
+            <option value="Not Selected">--Please choose an option--</option>
+            ${state.food.map(food => {
+              return `<option value="${food.food}">${food.food}</option>`;
+            })}
+          </select>
         </div>
         <div>
-          <label for="drink">Drink</label>
-          <input type="text" name="drink" id="drink" />
+          <label class="listType" for="drink">Drink</label>
+          <select name="drink" id="drink" multiple>
+            <option value="Not Selected">--Please choose an option--</option>
+            ${state.drinks.map(drink => {
+              return `<option value="${drink.drink}">${drink.drink}</option>`;
+            })}
+          </select>
         </div>
-        <div>
-          <label for="brand">Brand</label>
-          <input type="text" name="brand" id="brand" required />
-        </div>
+        <input type="submit" value="Search" />
       </form>
     </section>
-    <input type="submit" value="Search" />
   `;
 };
